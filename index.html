@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Estética Serena — Beleza e bem-estar</title>
+  <meta name="description" content="Cuidados de estética avançada: limpeza de pele, design de sobrancelhas, skincare personalizado e mais. Agende seu horário." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f0f10;
+      --text:#f7f7f8;
+      --muted:#cfcfd3;
+      --brand:#e5a1b8;   /* rosa elegante */
+      --brand-2:#9e6a80; /* tom complementar */
+      --card:#151517;
+      --stroke:#26262a;
+      --success:#36c690;
+      --danger:#ef6262;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .container{width:100%;max-width:1100px;margin:0 auto;padding:0 20px}
+    header{
+      position:sticky;top:0;z-index:50;background:rgba(15,15,16,.7);
+      backdrop-filter: blur(8px);border-bottom:1px solid var(--stroke)
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{display:flex;align-items:center;gap:12px;font-weight:700}
+    .logo .mark{width:36px;height:36px;border-radius:50%;background:
+      radial-gradient(circle at 30% 30%, var(--brand) 0%, var(--brand-2) 60%, #6b4254 100%);
+      box-shadow:0 6px 18px rgba(229,161,184,.35)}
+    .links{display:flex;gap:20px}
+    .links a{padding:8px 12px;border-radius:10px;border:1px solid transparent}
+    .links a:hover{border-color:var(--stroke);background:rgba(255,255,255,.04)}
+    .cta{
+      padding:10px 16px;border-radius:12px;background:var(--brand);color:#1a0f13;
+      font-weight:600;box-shadow:0 8px 20px rgba(229,161,184,.35)
+    }
+    .cta:hover{filter:brightness(1.05)}
+    .menu-btn{display:none;background:none;border:none;color:var(--text);font-size:22px}
+
+    /* Hero */
+    .hero{padding:80px 0 40px;background:
+      radial-gradient(1200px 600px at 80% -20%, rgba(229,161,184,.25), transparent 40%),
+      radial-gradient(800px 400px at 10% 20%, rgba(158,106,128,.25), transparent 40%)}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+    .eyebrow{color:var(--brand);letter-spacing:.12em;font-weight:600;text-transform:uppercase;font-size:12px}
+    .title{font-family:"Playfair Display", serif;font-size:52px;line-height:1.05;margin:10px 0 16px}
+    .subtitle{color:var(--muted);font-size:18px}
+    .actions{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+    .btn-secondary{padding:10px 16px;border:1px solid var(--stroke);border-radius:12px;color:var(--text)}
+    .hero-card{
+      background:linear-gradient(180deg,#161617, #111112);
+      border:1px solid var(--stroke);border-radius:18px;padding:18px;box-shadow:var(--shadow)
+    }
+    .hero-card .photo{
+      aspect-ratio:4/5;border-radius:14px;overflow:hidden;border:1px solid var(--stroke);
+      background:linear-gradient(135deg,#1b1b1e, #242428)
+    }
+    .badges{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+    .badge{font-size:12px;padding:6px 10px;border-radius:999px;border:1px solid var(--stroke);color:var(--muted)}
+    .badge i{color:var(--brand);margin-right:6px}
+
+    /* Section */
+    section{padding:60px 0;border-top:1px solid var(--stroke)}
+    .section-title{font-family:"Playfair Display", serif;font-size:32px;margin-bottom:10px}
+    .section-sub{color:var(--muted);max-width:680px}
+
+    /* Serviços */
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+    .card{
+      background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:16px;transition:.2s;
+    }
+    .card:hover{transform:translateY(-2px);border-color:#35353a}
+    .card h4{margin:8px 0;font-size:18px}
+    .tag{display:inline-block;font-size:12px;color:#ddd;background:#1b1b1e;border:1px solid var(--stroke);padding:4px 8px;border-radius:999px;margin-top:8px}
+
+    /* Galeria antes/depois */
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px}
+    .gallery .item{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--stroke)}
+    .label{
+      position:absolute;left:8px;top:8px;background:rgba(0,0,0,.5);
+      color:#fff;font-size:12px;padding:4px 8px;border-radius:999px
+    }
+
+    /* Depoimentos */
+    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+    .quote{
+      background:var(--card);border:1px solid var(--stroke);border-radius:14px;padding:16px
+    }
+    .stars{color:#f5cc6e;margin-bottom:8px}
+    .who{color:var(--muted);font-size:14px;margin-top:8px}
+
+    /* Agendamento */
+    .form{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+    .form .field{display:flex;flex-direction:column;gap:8px}
+    .form label{font-size:14px;color:var(--muted)}
+    .form input,.form select,.form textarea{
+      background:#141416;border:1px solid var(--stroke);color:var(--text);
+      border-radius:12px;padding:10px 12px;outline:none
+    }
+    .form textarea{min-height:110px;resize:vertical}
+    .form .full{grid-column:1/-1}
+    .form .submit{grid-column:1/-1;display:flex;gap:12px;align-items:center}
+    .note{color:var(--muted);font-size:13px}
+
+    /* Footer */
+    footer{padding:40px 0;border-top:1px solid var(--stroke);color:var(--muted)}
+    .foot-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:18px}
+    .social{display:flex;gap:10px}
+    .social a{border:1px solid var(--stroke);padding:8px 10px;border-radius:10px}
+
+    /* Responsivo */
+    @media (max-width:980px){
+      .hero-grid{grid-template-columns:1fr}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .gallery{grid-template-columns:repeat(3,1fr)}
+      .testimonials{grid-template-columns:repeat(2,1fr)}
+      .foot-grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:640px){
+      .links{display:none}
+      .menu-btn{display:block}
+      .title{font-size:36px}
+      .cards{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .testimonials{grid-template-columns:1fr}
+      .form{grid-template-columns:1fr}
+    }
+
+    /* Animações simples */
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease, transform .5s ease}
+    .reveal.in{opacity:1;transform:none}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="mark"></div>
+        <div>Estética Serena</div>
+      </div>
+      <nav class="links">
+        <a href="#servicos">Serviços</a>
+        <a href="#galeria">Antes & Depois</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#agendar" class="cta">Agendar agora</a>
+      </nav>
+      <button class="menu-btn" id="menuBtn">☰</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow reveal">Estética avançada em Aracaju</div>
+        <h1 class="title reveal">Beleza natural, pele saudável e autoestima lá em cima.</h1>
+        <p class="subtitle reveal">Atendimento personalizado com protocolos modernos de skincare, limpeza de pele profunda, design e revitalização. Resultados visíveis com conforto e cuidado.</p>
+        <div class="actions reveal">
+          <a class="cta" id="ctaWhats" href="https://wa.me/5579999999999?text=Oi!%20Quero%20agendar%20um%20hor%C3%A1rio.">Falar no WhatsApp</a>
+          <a class="btn-secondary" href="#servicos">Ver serviços</a>
+        </div>
+        <div class="badges reveal">
+          <span class="badge"><i>★</i> Profissional certificada</span>
+          <span class="badge"><i>♡</i> Protocolos sem dor</span>
+          <span class="badge"><i>⏱</i> Duração sob medida</span>
+        </div>
+      </div>
+      <div class="hero-card reveal">
+        <div class="photo">
+          <!-- Substitua por uma foto sua -->
+          <img alt="Profissional de estética" src="https://images.unsplash.com/photo-1587560699334-89d3cf4cc3a5?q=80&w=1080&auto=format&fit=crop" />
+        </div>
+        <div class="badges">
+          <span class="badge"><i>✨</i> Skincare avançado</span>
+          <span class="badge"><i>💧</i> Hidratação profunda</span>
+          <span class="badge"><i>🧴</i> Dermocosméticos premium</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Serviços -->
+  <section id="servicos">
+    <div class="container">
+      <h2 class="section-title reveal">Serviços</h2>
+      <p class="section-sub reveal">Selecione o cuidado que combina com você. Todos os procedimentos são realizados após avaliação da pele e indicação personalizada.</p>
+      <div class="cards">
+        <div class="card reveal">
+          <img alt="Limpeza de pele" src="https://images.unsplash.com/photo-1600431521340-491eca880813?q=80&w=800&auto=format&fit=crop" />
+          <h4>Limpeza de pele profunda</h4>
+          <p>Desobstrução de poros, controle de oleosidade e viço imediato. Indicado para todos os tipos de pele.</p>
+          <span class="tag">60–75 min</span>
+        </div>
+        <div class="card reveal">
+          <img alt="Design de sobrancelhas" src="https://images.unsplash.com/photo-1582083378054-997e1f59b19a?q=80&w=800&auto=format&fit=crop" />
+          <h4>Design de sobrancelhas</h4>
+          <p>Harmonia do olhar com técnicas personalizadas. Inclui mapeamento e acabamento preciso.</p>
+          <span class="tag">30–40 min</span>
+        </div>
+        <div class="card reveal">
+          <img alt="Revitalização facial" src="https://images.unsplash.com/photo-1558980664-10f5c4f3c4b3?q=80&w=800&auto=format&fit=crop" />
+          <h4>Revitalização facial</h4>
+          <p>Protocolos para textura, luminosidade e firmeza, com ativos potentes e conforto total.</p>
+          <span class="tag">50–60 min</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galeria -->
+  <section id="galeria">
+    <div class="container">
+      <h2 class="section-title reveal">Antes e depois</h2>
+      <p class="section-sub reveal">Resultados reais em pele e olhar. As imagens são autorizadas pelas clientes.</p>
+      <div class="gallery">
+        <div class="item reveal">
+          <img alt="Antes e depois limpeza de pele" src="https://images.unsplash.com/photo-1534012994378-80f7691150f1?q=80&w=600&auto=format&fit=crop" />
+          <span class="label">Limpeza</span>
+        </div>
+        <div class="item reveal">
+          <img alt="Sobrancelhas antes e depois" src="https://images.unsplash.com/photo-1618375381575-3341117f7ed1?q=80&w=600&auto=format&fit=crop" />
+          <span class="label">Sobrancelhas</span>
+        </div>
+        <div class="item reveal">
+          <img alt="Skincare glow" src="https://images.unsplash.com/photo-1515468381879-9981f5f94324?q=80&w=600&auto=format&fit=crop" />
+          <span class="label">Glow</span>
+        </div>
+        <div class="item reveal">
+          <img alt="Revitalização" src="https://images.unsplash.com/photo-1598556625568-221992c39d67?q=80&w=600&auto=format&fit=crop" />
+          <span class="label">Revitalização</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos -->
+  <section id="depoimentos">
+    <div class="container">
+      <h2 class="section-title reveal">Depoimentos</h2>
+      <p class="section-sub reveal">Quem já passou por aqui descreve a experiência com cuidado, técnica e resultados que elevam a autoestima.</p>
+      <div class="testimonials">
+        <div class="quote reveal">
+          <div class="stars">★★★★★</div>
+          “Minha pele mudou em duas sessões. Atendimento impecável, ambiente tranquilo e resultado incrível!”
+          <div class="who">— Ana Paula</div>
+        </div>
+        <div class="quote reveal">
+          <div class="stars">★★★★★</div>
+          “O design de sobrancelhas ficou muito natural. Saí me sentindo maravilhosa!”
+          <div class="who">— Júlia Santos</div>
+        </div>
+        <div class="quote reveal">
+          <div class="stars">★★★★★</div>
+          “Protocolos personalizados e produtos de qualidade. Recomendo de olhos fechados.”
+          <div class="who">— Marina Costa</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agendar -->
+  <section id="agendar">
+    <div class="container">
+      <h2 class="section-title reveal">Agende seu horário</h2>
+      <p class="section-sub reveal">Preencha seus dados e escolha o serviço. Entraremos em contato para confirmar a melhor data e horário.</p>
+
+      <form class="form" id="formAgendar" novalidate>
+        <div class="field">
+          <label for="nome">Nome completo</label>
+          <input id="nome" name="nome" type="text" placeholder="Seu nome" required />
+        </div>
+        <div class="field">
+          <label for="telefone">Telefone/WhatsApp</label>
+          <input id="telefone" name="telefone" type="tel" placeholder="(79) 9 9999-9999" required />
+        </div>
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" placeholder="voce@email.com" />
+        </div>
+        <div class="field">
+          <label for="servico">Serviço</label>
+          <select id="servico" name="servico" required>
+            <option value="">Selecione</option>
+            <option>Limpeza de pele profunda</option>
+            <option>Design de sobrancelhas</option>
+            <option>Revitalização facial</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" placeholder="Preferências de horário, objetivos, pele, etc."></textarea>
+        </div>
+        <div class="submit">
+          <button type="submit" class="cta">Enviar pedido</button>
+          <span class="note">Ao enviar, você concorda em ser contatada para confirmação do agendamento.</span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container foot-grid">
+      <div>
+        <div class="logo">
+          <div class="mark"></div>
+          <div>Estética Serena</div>
+        </div>
+        <p style="margin-top:8px">Av. Exemplo, 123 — Aracaju/SE • Atendimento com hora marcada</p>
+        <div class="social" style="margin-top:10px">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="TikTok">TikTok</a>
+          <a href="#" aria-label="WhatsApp">WhatsApp</a>
+        </div>
+      </div>
+      <div>
+        <strong style="display:block;margin-bottom:8px">Contato</strong>
+        <p>WhatsApp: (79) 9 9999-9999</p>
+        <p>E-mail: contato@esteticaserena.com</p>
+      </div>
+      <div>
+        <strong style="display:block;margin-bottom:8px">Atendimento</strong>
+        <p>Seg–Sex • 9h–18h</p>
+        <p>Sáb • 9h–13h</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Menu mobile simples: abre links como overlay (mostra/oculta)
+    const menuBtn = document.getElementById('menuBtn');
+    const header = document.querySelector('header');
+    const links = document.querySelector('.links');
+    menuBtn?.addEventListener('click', ()=>{
+      if(getComputedStyle(links).display === 'none'){
+        links.style.display = 'flex';
+        links.style.flexDirection = 'column';
+        links.style.position = 'absolute';
+        links.style.top = '64px';
+        links.style.right = '20px';
+        links.style.background = 'rgba(20,20,22,.95)';
+        links.style.padding = '12px';
+        links.style.borderRadius = '12px';
+        links.style.border = '1px solid var(--stroke)';
+        links.style.boxShadow = 'var(--shadow)';
+      }else{
+        links.style.display = 'none';
+      }
+    });
+
+    // Animação reveal ao rolar
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('in'); }
+      });
+    }, {threshold:.16});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+    // Validação simples + abrir WhatsApp com dados do formulário
+    const form = document.getElementById('formAgendar');
+    form?.addEventListener('submit', (ev)=>{
+      ev.preventDefault();
+      const nome = document.getElementById('nome').value.trim();
+      const tel = document.getElementById('telefone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const servico = document.getElementById('servico').value;
+      const msg = document.getElementById('mensagem').value.trim();
+
+      if(!nome || !tel || !servico){
+        alert('Por favor, preencha nome, telefone e serviço.');
+        return;
+      }
+
+      const texto = encodeURIComponent(
+        `Oi! Meu nome é ${nome}.
+Telefone: ${tel}${email ? ` | E-mail: ${email}` : ``}
+Quero agendar: ${servico}
+Mensagem: ${msg || '—'}`
+      );
+
+      // Substitua pelo seu número com DDI 55 e DDD (ex: 5579999999999)
+      const numero = '5579999999999';
+      window.open(`https://wa.me/${numero}?text=${texto}`, '_blank');
+    });
+
+    // Ajuste rápido do botão do hero para seu número
+    const cta = document.getElementById('ctaWhats');
+    cta?.addEventListener('click', (e)=>{
+      // Opcional: se quiser sempre atualizar com o número do formulário, comente/edite aqui.
+    });
+  </script>
+</body>
+</html>
