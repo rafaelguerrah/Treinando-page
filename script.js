@@ -36,6 +36,7 @@ form?.addEventListener('submit', (ev) => {
     const tel = document.getElementById('telefone').value.trim();
     const email = document.getElementById('email').value.trim();
     const servico = document.getElementById('servico').value;
+    const origem = document.getElementById('origem').value;
     const msg = document.getElementById('mensagem').value.trim();
 
     if (!nome || !tel || !servico) {
@@ -47,11 +48,12 @@ form?.addEventListener('submit', (ev) => {
         `Oi! Meu nome é ${nome}.
 Telefone: ${tel}${email ? ` | E-mail: ${email}` : ``}
 Quero agendar: ${servico}
+Origem: ${origem}
 Mensagem: ${msg || '—'}`
     );
 
     // Substitua pelo seu número com DDI 55 e DDD (ex: 5579999999999)
-    const numero = '5579998804382';
+    const numero = '5579981390676';
     window.open(`https://wa.me/${numero}?text=${texto}`, '_blank');
 });
 
