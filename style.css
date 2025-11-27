@@ -380,16 +380,20 @@
 
  /* Footer */
  footer {
-     padding: 40px 0;
-     border-top: 1px solid var(--stroke);
-     color: var(--muted)
- }
+    padding: 40px 0;
+    border-top: 1px solid var(--stroke);
+    color: var(--muted);
+    max-width: 100%;   
+    overflow-x: hidden; 
+}
 
- .foot-grid {
-     display: grid;
-     grid-template-columns: 1.2fr .8fr .8fr;
-     gap: 18px
- }
+.foot-grid {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr .8fr;
+    gap: 18px;
+    width: 100%;       
+    box-sizing: border-box;
+}
 
  .social {
      display: flex;
@@ -453,6 +457,9 @@
      .form {
          grid-template-columns: 1fr
      }
+        .foot-grid {
+            grid-template-columns: 1fr
+        }
  }
 
  /* Animações simples */
