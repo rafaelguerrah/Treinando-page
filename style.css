@@ -120,7 +120,7 @@
      padding: 80px 0 40px;
      background:
          radial-gradient(1200px 600px at 80% -20%, rgba(229, 161, 184, .25), transparent 40%),
-         radial-gradient(800px 400px at 10% 20%, rgba(158, 106, 128, .25), transparent 40%)
+         radial-gradient(800px 400px at 10% 20%, rgba(155, 158, 106, 0.25), transparent 40%)
  }
 
  .hero-grid {
@@ -305,7 +305,8 @@
      display: grid;
      grid-template-columns: repeat(3, 1fr);
      gap: 18px;
-     margin-top: 24px
+     margin-top: 24px;
+     text-align: center
  }
 
  .quote {
@@ -324,7 +325,7 @@
  .who {
      color: var(--muted);
      font-size: 14px;
-     margin-top: 8px
+     margin-top: 8px;
  }
 
  /* Agendamento */
@@ -404,6 +405,13 @@
      border: 1px solid var(--stroke);
      padding: 8px 10px;
      border-radius: 10px
+ }
+
+ .bottom-bar{
+    margin-top: 40px;
+    font-size: 14px;
+    text-align: center;
+    color: var(--brand);
  }
 
  /* Responsivo */
